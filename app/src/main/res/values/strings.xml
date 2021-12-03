@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Gym Management Admin</string>
+    <string name="login_with_number">Login with Mobile Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="full_name">Full Name</string>
+    <string name="diet_chart">Diet Chart</string>
+    <string name="time">Time</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="set">Set</string>
+    <string name="reps">Reps</string>
+    <string name="days3">3 Days of Week</string>
+    <string name="days5">5 Days of Week</string>
+    <string name="days6">6 Days of Week</string>
+    <string name="openNavDrawer">Navigation Drawer Open</string>
+    <string name="closeNavDrawer">Navigation Drawer Close</string>
+    <string name="more_option_coming_soon">*More option coming soon</string>
+    <string name="setting">Setting</string>
+    <string name="add_diet">Add Diet</string>
+    <string name="body_types">Body Types</string>
+    <string name="dart_mood">Dart Mode</string>
+    <string name="logout">Logout</string>
+    <string-array name="body_types">
+    <item>Select one</item>
+    <item>Ectomorph</item>
+    <item>Mesomorph</item>
+    <item>Endomorph</item>
+   </string-array>
+</resources>

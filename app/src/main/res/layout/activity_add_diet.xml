@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddDietActivity">
+    <ImageButton
+        android:id="@+id/imageButton_addDietAct_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_back"
+        android:background="@null"
+        android:layout_margin="15dp"
+        />
+    <TextView
+        android:id="@+id/textview_addDietAct_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_diet"
+        android:layout_margin="13dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageButton_addDietAct_back" />
+
+
+    <EditText
+        android:id="@+id/edittext_addDietAct_dietChartName"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="@string/diet_chart"
+        android:inputType="text"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_addDietAct_header" />
+
+    <Spinner
+        android:id="@+id/spinner_addDietAct_bodyTypes"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="5dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_addDietAct_dietChartName" />
+    <ImageButton
+        android:id="@+id/imageButton_addDietAct_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        android:focusable="true"
+        android:padding="13sp"
+        android:src="@drawable/ic_dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_addDietAct_dietChartName"
+
+        />
+
+
+    <EditText
+        android:id="@+id/editText_addDietAct_Time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_background"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:hint="@string/time"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_addDietAct_bodyTypes" />
+    <Button
+        android:id="@+id/button_addDietAct_add"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/add_diet"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_addDietAct_Time" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
