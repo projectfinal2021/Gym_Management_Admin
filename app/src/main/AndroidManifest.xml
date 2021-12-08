@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymManagementAdmin">
         <activity
+            android:name=".ui.AddRoutineActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AddDietActivity"
             android:exported="true" />
         <activity

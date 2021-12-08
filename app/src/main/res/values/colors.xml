@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black_regular">#424141</color>
     <color name="ash">#C8C7C7</color>
+    <color name="red">#FF0000</color>
     <color name="white_blue">#F1F8FF</color>
 
 </resources>

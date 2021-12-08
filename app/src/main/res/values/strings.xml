@@ -8,8 +8,12 @@
     <string name="diet_chart">Diet Chart</string>
     <string name="time">Time</string>
     <string name="exercise_name">Exercise Name</string>
+    <string name="exercise_details">Exercise Details</string>
     <string name="set">Set</string>
     <string name="reps">Reps</string>
+    <string name="days_routine">Days Routine</string>
+    <string name="days">Days</string>
+    <string name="video_id">Youtube Video Id</string>
     <string name="days3">3 Days of Week</string>
     <string name="days5">5 Days of Week</string>
     <string name="days6">6 Days of Week</string>
@@ -18,13 +22,21 @@
     <string name="more_option_coming_soon">*More option coming soon</string>
     <string name="setting">Setting</string>
     <string name="add_diet">Add Diet</string>
+    <string name="add_exercise">Add Exercise</string>
     <string name="body_types">Body Types</string>
     <string name="dart_mood">Dart Mode</string>
     <string name="logout">Logout</string>
     <string-array name="body_types">
-    <item>Select one</item>
-    <item>Ectomorph</item>
-    <item>Mesomorph</item>
-    <item>Endomorph</item>
-   </string-array>
+        <item>Select one</item>
+        <item>Ectomorph</item>
+        <item>Mesomorph</item>
+        <item>Endomorph</item>
+    </string-array>
+
+    <string-array name="total_days">
+        <item>Select one</item>
+        <item>3 Days</item>
+        <item>5 Days</item>
+        <item>6 Days</item>
+    </string-array>
 </resources>

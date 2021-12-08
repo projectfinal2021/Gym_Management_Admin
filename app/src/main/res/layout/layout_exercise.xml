@@ -13,24 +13,45 @@
         android:layout_width="70dp"
         android:layout_height="match_parent"
         android:gravity="start"
+        android:scaleType="fitXY"
+        android:src="@drawable/mainscren"
         android:text="@string/exercise_name"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:scaleType="fitXY"
-        android:src="@drawable/mainscren"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_exerciseLayout_exerciseName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:gravity="start"
         android:text="@string/exercise_name"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:layout_marginEnd="60dp"
         app:layout_constraintStart_toEndOf="@id/imageview_exerciseLayout_exerciseImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton_exerciseLayout_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@null"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toStartOf="@id/imageButton_exerciseLayout_delete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton_exerciseLayout_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@null"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

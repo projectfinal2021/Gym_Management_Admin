@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/drawable/edittext_background.xml" value="0.3974358974358974" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/drawable/ic_delete.xml" value="0.3974358974358974" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/drawable/ic_edit.xml" value="0.3974358974358974" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/activity_add_diet.xml" value="0.38153846153846155" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/activity_add_routine.xml" value="0.33" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/activity_home.xml" value="0.37962962962962965" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/activity_setting.xml" value="0.3875" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/fragment_diet_chart.xml" value="0.38153846153846155" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/fragment_routine.xml" value="0.38153846153846155" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/layout_diet_chart.xml" value="0.3875" />
+        <entry key="..\:/Client Project/New folder/GymManagementAdmin/app/src/main/res/layout/layout_exercise.xml" value="0.3875" />
         <entry key="..\:/Study/GymManagementAdmin/app/src/main/res/drawable/button_background.xml" value="0.37962962962962965" />
         <entry key="..\:/Study/GymManagementAdmin/app/src/main/res/drawable/button_background_white.xml" value="0.37962962962962965" />
         <entry key="..\:/Study/GymManagementAdmin/app/src/main/res/drawable/edittext_background.xml" value="0.37962962962962965" />
