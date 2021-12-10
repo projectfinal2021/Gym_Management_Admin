@@ -1,16 +1,19 @@
 package com.example.gymmanagementadmin.model;
 
 public class ExerciseInfo {
-    private String bodyType, daysOfWeek, exerciseDetails,exerciseId, exerciseName, imageLink1, imageLink2, imageLink3, reps, set, totalDaysOfWeek, videoLink;
+    private String bodyType, daysOfWeek, exerciseDetails,exerciseId,exerciseKey, exerciseName, imageLink1, imageLink2, imageLink3, reps, set, totalDaysOfWeek, videoLink;
 
     public ExerciseInfo() {
     }
 
-    public ExerciseInfo(String bodyType, String daysOfWeek, String exerciseDetails, String exerciseId, String exerciseName, String imageLink1, String imageLink2, String imageLink3, String reps, String set, String totalDaysOfWeek, String videoLink) {
+    public ExerciseInfo(String bodyType, String daysOfWeek, String exerciseDetails, String exerciseId
+            ,String exerciseKey, String exerciseName, String imageLink1, String imageLink2, String imageLink3, String reps
+            , String set, String totalDaysOfWeek, String videoLink) {
         this.bodyType = bodyType;
         this.daysOfWeek = daysOfWeek;
         this.exerciseDetails = exerciseDetails;
         this.exerciseId=exerciseId;
+        this.exerciseKey=exerciseKey;
         this.exerciseName = exerciseName;
         this.imageLink1 = imageLink1;
         this.imageLink2 = imageLink2;
@@ -51,6 +54,14 @@ public class ExerciseInfo {
 
     public void setExerciseId(String exerciseId) {
         this.exerciseId = exerciseId;
+    }
+
+    public String getExerciseKey() {
+        return exerciseKey;
+    }
+
+    public void setExerciseKey(String exerciseKey) {
+        this.exerciseKey = exerciseKey;
     }
 
     public String getExerciseName() {

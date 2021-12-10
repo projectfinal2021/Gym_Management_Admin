@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.gymmanagementadmin.adapter.DietChartAdapter;
 import com.example.gymmanagementadmin.databinding.FragmentDietChartBinding;
+
+import com.example.gymmanagementadmin.interfaces.OnDietClickListener;
 import com.example.gymmanagementadmin.model.DietChartInfo;
+import com.example.gymmanagementadmin.model.ExerciseInfo;
 import com.example.gymmanagementadmin.ui.AddDietActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DietChartFragment extends Fragment {
+public class DietChartFragment extends Fragment implements OnDietClickListener {
     private static final String TAG = "DietChartFragment";
     private FragmentDietChartBinding fragmentDietChartBinding;
     private DatabaseReference databaseReference;
@@ -48,7 +51,7 @@ public class DietChartFragment extends Fragment {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Diet Chart");
         dietChartInfos = new ArrayList<>();
-        dietChartAdapter = new DietChartAdapter(dietChartInfos);
+        dietChartAdapter = new DietChartAdapter(dietChartInfos, this);
         fragmentDietChartBinding.recyclerviewDietChartFragDietChart.setLayoutManager(new LinearLayoutManager(view.getContext()));
         fragmentDietChartBinding.recyclerviewDietChartFragDietChart.setAdapter(dietChartAdapter);
 
@@ -83,7 +86,7 @@ public class DietChartFragment extends Fragment {
                 fragmentDietChartBinding.flotingButtonDietChartFragAdd.setVisibility(View.VISIBLE);
                 dietChartAdapter.notifyDataSetChanged();
                 Dialog.dismiss();
-                
+
 
             }
 
@@ -95,9 +98,27 @@ public class DietChartFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart: ");
+    public void onResume() {
+        Log.d(TAG, "onResume: ");
         getDietChartList();
+        super.onResume();
+    }
+
+    @Override
+    public void onDeleteClickListener(DietChartInfo dietChartInfo, String key) {
+        databaseReference.child(key).removeValue();
+        getDietChartList();
+    }
+
+    @Override
+    public void onDietEditClickListener(DietChartInfo dietChartInfo, String dietKey) {
+        Intent intent = new Intent(getActivity(), AddDietActivity.class);
+
+        intent.putExtra("bodyType", dietChartInfo.getBodyType());
+        intent.putExtra("dietChartName", dietChartInfo.getDietChartName());
+        intent.putExtra("dietChartTime", dietChartInfo.getDietChartTime());
+        intent.putExtra("dietKey", dietChartInfo.getDietKey());
+
+        startActivity(intent);
     }
 }

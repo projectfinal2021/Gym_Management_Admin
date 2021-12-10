@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,8 @@ public class AddDietActivity extends AppCompatActivity {
     private String dietChart, bodyTypes, time;
     private DatabaseReference databaseReference;
     ProgressDialog Dialog;
+    int status_pos = 0;
+    String updateKey = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,37 @@ public class AddDietActivity extends AppCompatActivity {
         activityAddDietBinding = ActivityAddDietBinding.inflate(getLayoutInflater());
         setContentView(activityAddDietBinding.getRoot());
 
-        //Spinner
-        spinnerbodyTypes();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            activityAddDietBinding.textviewAddDietActHeader.setText("Edit Diet");
+            activityAddDietBinding.buttonAddDietActAdd.setText("EDIT DIET");
+            activityAddDietBinding.edittextAddDietActDietChartName.setText(
+                    bundle.getString("dietChartName"));
+            activityAddDietBinding.editTextAddDietActTime.setText(
+                    bundle.getString("dietChartTime"));
+            updateKey = bundle.getString("dietKey");
+            //Spinner
+            switch (bundle.getString("bodyType")) {
+
+                case "Ectomorph":
+                    status_pos = 1;
+                    break;
+                case "Mesomorph":
+                    status_pos = 2;
+                    break;
+                case "Endomorph":
+                    status_pos = 3;
+                    break;
+
+            }
+            spinnerbodyTypes(status_pos);
+        } else {
+            //Spinner
+            spinnerbodyTypes(status_pos);
+
+        }
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Diet Chart");
         Dialog = new ProgressDialog(AddDietActivity.this);
@@ -58,11 +90,19 @@ public class AddDietActivity extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String key = databaseReference.push().getKey();
-                DietChartInfo dietChartInfo = new DietChartInfo(bodyTypes, dietChart, time);
-                databaseReference.child(key).setValue(dietChartInfo);
-                Dialog.dismiss();
-                finish();
+                if (status_pos != 0) {
+                    DietChartInfo dietChartInfo = new DietChartInfo(bodyTypes, dietChart, time, updateKey);
+                    databaseReference.child(updateKey).setValue(dietChartInfo);
+                    Dialog.dismiss();
+                    finish();
+                } else {
+                    String key = databaseReference.push().getKey();
+                    DietChartInfo dietChartInfo = new DietChartInfo(bodyTypes, dietChart, time, key);
+                    databaseReference.child(key).setValue(dietChartInfo);
+                    Dialog.dismiss();
+                    finish();
+                }
+
             }
 
             @Override
@@ -88,10 +128,12 @@ public class AddDietActivity extends AppCompatActivity {
         }
     }
 
-    private void spinnerbodyTypes() {
+    private void spinnerbodyTypes(int status_pos) {
         ArrayAdapter<String> hospital_typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item
                 , getResources().getStringArray(R.array.body_types));
         hospital_typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         activityAddDietBinding.spinnerAddDietActBodyTypes.setAdapter(hospital_typeAdapter);
+        activityAddDietBinding.spinnerAddDietActBodyTypes.setSelection(status_pos);
+
     }
 }

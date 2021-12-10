@@ -75,12 +75,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textview_exerciseLayout_reps"
+            android:id="@+id/textview_exerciseLayout_bodyTypes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="start"
-            android:text="@string/reps"
+            android:text="@string/body_types"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textview_exerciseLayout_set"
             app:layout_constraintTop_toTopOf="parent" />

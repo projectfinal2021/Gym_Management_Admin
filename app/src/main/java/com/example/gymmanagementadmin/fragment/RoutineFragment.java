@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.gymmanagementadmin.interfaces.OnExerciseClickListener;
+import com.example.gymmanagementadmin.ui.AddDietActivity;
 import com.example.gymmanagementadmin.ui.AddRoutineActivity;
 import com.example.gymmanagementadmin.adapter.ExerciseAdapter;
 import com.example.gymmanagementadmin.databinding.FragmentRoutineBinding;
@@ -21,13 +23,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class RoutineFragment extends Fragment {
+public class RoutineFragment extends Fragment implements OnExerciseClickListener {
     private static final String TAG = "RoutineFragment";
     private FragmentRoutineBinding fragmentRoutineBinding;
-    ;
     private DatabaseReference databaseReference;
     private ExerciseAdapter exerciseAdapter;
     ArrayList<ExerciseInfo> exerciseInfos;
@@ -48,7 +50,7 @@ public class RoutineFragment extends Fragment {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Exercises");
         exerciseInfos = new ArrayList<>();
-        exerciseAdapter = new ExerciseAdapter(exerciseInfos);
+        exerciseAdapter = new ExerciseAdapter(exerciseInfos,this);
         fragmentRoutineBinding.recyclerviewRoutineFragRoutine.setLayoutManager(new LinearLayoutManager(view.getContext()));
         fragmentRoutineBinding.recyclerviewRoutineFragRoutine.setAdapter(exerciseAdapter);
 
@@ -95,5 +97,33 @@ public class RoutineFragment extends Fragment {
         super.onStart();
         Log.d(TAG, "onStart: ");
         getRoutineList();
+    }
+
+    @Override
+    public void onExerciseDeleteClickListener(ExerciseInfo exerciseInfo, String key) {
+        databaseReference.child(key).removeValue();
+        getRoutineList();
+    }
+
+    @Override
+    public void onExerciseDietEditClickListener(ExerciseInfo exerciseInfo, String key) {
+        Intent intent = new Intent(getActivity(), AddRoutineActivity.class);
+
+        intent.putExtra("exerciseName", exerciseInfo.getExerciseName());
+        intent.putExtra("exerciseDetails", exerciseInfo.getExerciseDetails());
+        intent.putExtra("image01", exerciseInfo.getImageLink1());
+        intent.putExtra("image02", exerciseInfo.getImageLink2());
+        intent.putExtra("image03", exerciseInfo.getImageLink3());
+        intent.putExtra("dayOfWeek", exerciseInfo.getDaysOfWeek());
+        intent.putExtra("bodyType", exerciseInfo.getBodyType());
+        intent.putExtra("videoId", exerciseInfo.getVideoLink());
+        intent.putExtra("days", exerciseInfo.getBodyType());
+        intent.putExtra("bodyType", exerciseInfo.getBodyType());
+        intent.putExtra("bodyType", exerciseInfo.getBodyType());
+
+
+        intent.putExtra("exerciseKey", exerciseInfo.getExerciseKey());
+
+        startActivity(intent);
     }
 }

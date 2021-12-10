@@ -1,15 +1,16 @@
 package com.example.gymmanagementadmin.model;
 
 public class DietChartInfo {
-    private String bodyType,dietChartName,dietChartTime;
+    private String bodyType,dietChartName,dietChartTime,dietKey;
 
     public DietChartInfo() {
     }
 
-    public DietChartInfo(String bodyType, String dietChartName, String dietChartTime) {
+    public DietChartInfo(String bodyType, String dietChartName, String dietChartTime,String dietKey) {
         this.bodyType = bodyType;
         this.dietChartName = dietChartName;
         this.dietChartTime = dietChartTime;
+        this.dietKey=dietKey;
     }
 
     public String getBodyType() {
@@ -34,5 +35,13 @@ public class DietChartInfo {
 
     public void setDietChartTime(String dietChartTime) {
         this.dietChartTime = dietChartTime;
+    }
+
+    public String getDietKey() {
+        return dietKey;
+    }
+
+    public void setDietKey(String dietKey) {
+        this.dietKey = dietKey;
     }
 }
